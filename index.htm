@@ -3,65 +3,36 @@
 <head>
 <title>Happy Birthday ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
 <style>
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
+font-family: 'Segoe UI';
 background: linear-gradient(120deg,#ff758c,#ff7eb3);
 color:white;
 text-align:center;
 overflow:hidden;
 }
 
-/* Floating Hearts */
-.hearts{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-pointer-events:none;
-}
-.hearts::before{
-content:"❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
-position:absolute;
-font-size:25px;
-animation:floatHearts 15s linear infinite;
-}
-@keyframes floatHearts{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-100vh);}
-}
-
-/* Pages */
 .page{
 display:none;
 padding:60px 20px;
 height:100vh;
-opacity:0;
-transition:1s;
-}
-.active{
-display:block;
-opacity:1;
 }
 
-/* Button */
+.active{
+display:block;
+}
+
 button{
-padding:14px 30px;
+padding:12px 25px;
 border:none;
-border-radius:30px;
+border-radius:25px;
 background:white;
 color:#ff4d6d;
 font-size:18px;
 margin-top:25px;
 cursor:pointer;
-box-shadow:0 0 15px rgba(255,255,255,0.7);
-transition:0.4s;
 }
-button:hover{ transform:scale(1.1); }
 
 h1{font-size:40px;}
 p{font-size:20px; line-height:1.6;}
@@ -70,50 +41,48 @@ p{font-size:20px; line-height:1.6;}
 
 <body>
 
-<!-- Tap to Start Music Screen -->
-<div id="musicStart" onclick="startMusic()" 
-style="position:fixed;top:0;left:0;width:100%;height:100%;
-background:linear-gradient(120deg,#ff758c,#ff7eb3);
-display:flex;justify-content:center;align-items:center;
-z-index:9999;cursor:pointer;">
-<h1>Tap Anywhere ❤️<br>to Start Surprise 🎵</h1>
-</div>
-
-<audio id="bgMusic" loop>
-<source src="https://pagalworld.com.se/files/download/id/64630" type="audio/mp3">
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
-
-<div class="hearts"></div>
 
 <!-- PAGE 1 -->
 <div class="page active">
 <h1>🎉 Happy Birthday My Love 🎉</h1>
 <p>Oooo jii… Aeee jii 😚</p>
-<button onclick="nextPage()">Start Surprise ❤️</button>
+<button onclick="nextPage()">Click Here ❤️</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page">
-<h1>You Are My Favourite Person 💕</h1>
-<p>From the day you came into my life, everything became brighter and happier ❤️</p>
+<h1>You Are Special 💕</h1>
+<p>
+From the day you came into my life, everything became brighter and happier.
+You are my smile, my peace and my favourite notification ❤️
+</p>
 <button onclick="nextPage()">Continue 💌</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page">
-<h1>Long Distance but Close Hearts 🌍❤️</h1>
-<p>I wish tumhari life happiness, success, paisa aur meri love se full ho jaye 💖</p>
+<h1>Your Birthday Wish 🎈</h1>
+<p>
+I wish tumhari life happiness, success, paisa, good health
+aur bohot saari meri love se fill ho jaye 💖
+</p>
 <button onclick="nextPage()">Next Surprise 🎁</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page">
 <h1>For You 💗</h1>
-<p>Sach bolu… jab tum life me aaye tab realise hua love movies fake nahi hoti 🥺</p>
+<p>
+Sach bolu na… jab tum life me aaye na,
+tab mujhe realise hua ki love movies fake nahi hoti 🥺
+</p>
 <button onclick="nextPage()">Last Page 🥰</button>
 </div>
 
-<!-- FINAL PAGE -->
+<!-- PAGE 5 FINAL -->
 <div class="page">
 <h1>21 Feb 2006 🎂</h1>
 
@@ -121,21 +90,33 @@ z-index:9999;cursor:pointer;">
 Aaj ka din mere liye world ka sabse special din hai,
 kyunki aaj ke din meri life ka sabse important person paida hua ❤️  
 
-Tum sirf boyfriend nahi ho… tum meri comfort ho,
-meri habit ho, meri smile ho, mera mood ho 💕  
+Tum sirf mere boyfriend nahi ho… tum meri comfort ho,
+meri habit ho, meri smile ho, mera mood ho,
+aur kabhi kabhi mera gussa bhi 😤😂  
 
-Long distance easy nahi hota…
-kabhi calls miss, kabhi fights, kabhi mood off…
-but still we are together ❤️ and that's what matters.  
+Kabhi kabhi sochti hu ki main itni lucky kaise ho gayi
+ki mujhe tum mil gaye 🥺  
 
-I promise main hamesha tumhare saath rahungi 💖  
-Happy Birthday my love 🎉 I love you sooo much ❤️
+I know long distance easy nahi hota…
+kabhi calls miss ho jaati hain,
+kabhi mood off ho jata hai,
+kabhi fights bhi ho jaati hain,
+but still hum dono saath hain and that’s what matters ❤️  
+
+Tum ho toh sab hai…
+tum nahi toh kuch bhi nahi 🥺  
+
+I promise main hamesha tumhare saath rahungi,
+har mood swing, har fight, har happy moment me 💕  
+
+Happy Birthday my love 🎉  
+I love you sooo much ❤️
 </p>
 
 <h2>Make a Birthday Wish 🎂</h2>
-<p>Click candle to blow 💨</p>
+<p>Click the candle to blow it 💨</p>
 
-<div onclick="blowCandle()" id="cakeBox" style="cursor:pointer;font-size:120px;">
+<div onclick="blowCandle()" id="cakeBox" style="cursor:pointer; font-size:120px;">
 🎂🔥
 </div>
 
@@ -158,11 +139,6 @@ pages[currentPage].classList.add("active");
 function blowCandle(){
 document.getElementById("cakeBox").innerHTML="🎂";
 document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
-}
-
-function startMusic(){
-document.getElementById("bgMusic").play();
-document.getElementById("musicStart").style.display="none";
 }
 </script>
 
