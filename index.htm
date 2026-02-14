@@ -1,149 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Happy Birthday Oooo Jii ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
 body{
-  margin:0;
-  font-family:'Segoe UI';
-  background: linear-gradient(120deg,#ff9a9e,#fad0c4);
-  text-align:center;
-  overflow-x:hidden;
-  color:#333;
+margin:0;
+font-family:'Poppins',sans-serif;
+background: linear-gradient(120deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow:hidden;
 }
 
-section{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
+/* Floating Hearts */
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+}
+.hearts::before{
+content:"❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+position:absolute;
+font-size:25px;
+animation:floatHearts 15s linear infinite;
+}
+@keyframes floatHearts{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100vh);}
 }
 
-h1{font-size:42px;}
-h2{font-size:30px;}
+/* Pages */
+.page{
+display:none;
+padding:60px 20px;
+height:100vh;
+opacity:0;
+transition:1s;
+}
+.active{
+display:block;
+opacity:1;
+}
 
+/* Button */
 button{
-  padding:15px 30px;
-  border:none;
-  border-radius:30px;
-  background:#ff4d6d;
-  color:white;
-  font-size:18px;
-  margin-top:20px;
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4d6d;
+font-size:18px;
+margin-top:25px;
+cursor:pointer;
+box-shadow:0 0 15px rgba(255,255,255,0.7);
+transition:0.4s;
 }
+button:hover{ transform:scale(1.1); }
 
-/* pages */
-.page{display:none}
-
-/* hearts */
-.heart{
- position:fixed;
- top:-10px;
- animation:fall 6s linear infinite;
-}
-@keyframes fall{to{transform:translateY(110vh)}}
+h1{font-size:40px;}
+p{font-size:20px; line-height:1.6;}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 AUTO MUSIC -->
-<audio autoplay loop>
-<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+<!-- Tap to Start Music Screen -->
+<div id="musicStart" onclick="startMusic()" 
+style="position:fixed;top:0;left:0;width:100%;height:100%;
+background:linear-gradient(120deg,#ff758c,#ff7eb3);
+display:flex;justify-content:center;align-items:center;
+z-index:9999;cursor:pointer;">
+<h1>Tap Anywhere ❤️<br>to Start Surprise 🎵</h1>
+</div>
+
+<audio id="bgMusic" loop>
+<source src="https://pagalworld.com.se/files/download/id/64630" type="audio/mp3">
 </audio>
 
+<div class="hearts"></div>
+
 <!-- PAGE 1 -->
-<section id="p1">
-  <h1>🎉 Happy Birthday Oooo Jii ❤️</h1>
-  <p>Tap below for your surprise 👇</p>
-  <button onclick="next('p2')">Start Surprise ✨</button>
-</section>
+<div class="page active">
+<h1>🎉 Happy Birthday My Love 🎉</h1>
+<p>Oooo jii… Aeee jii 😚</p>
+<button onclick="nextPage()">Start Surprise ❤️</button>
+</div>
 
 <!-- PAGE 2 -->
-<section id="p2" class="page">
-  <h2>First Question 😌</h2>
-  <p>Who loves you the most? 😏</p>
-  <button onclick="next('p3')">Aeee Jii obviously 😎</button>
-</section>
+<div class="page">
+<h1>You Are My Favourite Person 💕</h1>
+<p>From the day you came into my life, everything became brighter and happier ❤️</p>
+<button onclick="nextPage()">Continue 💌</button>
+</div>
 
 <!-- PAGE 3 -->
-<section id="p3" class="page">
-  <h2>😂 Fun Fact</h2>
-  <p>You are officially getting older today 👴</p>
-  <p>But don't worry… you still cute 😌❤️</p>
-  <button onclick="next('p4')">Continue 💌</button>
-</section>
+<div class="page">
+<h1>Long Distance but Close Hearts 🌍❤️</h1>
+<p>I wish tumhari life happiness, success, paisa aur meri love se full ho jaye 💖</p>
+<button onclick="nextPage()">Next Surprise 🎁</button>
+</div>
 
 <!-- PAGE 4 -->
-<section id="p4" class="page">
-  <h2>Distance Message 🥺</h2>
-  <p>I wish I could hug you today…</p>
-  <p>But this website hug will work for now 🤗</p>
-  <button onclick="next('p5')">One Last Thing 💖</button>
-</section>
+<div class="page">
+<h1>For You 💗</h1>
+<p>Sach bolu… jab tum life me aaye tab realise hua love movies fake nahi hoti 🥺</p>
+<button onclick="nextPage()">Last Page 🥰</button>
+</div>
 
-<!-- PAGE 5 FINAL -->
-<section id="p5" class="page">
-  <h1>I Love You So Much ❤️</h1>
+<!-- FINAL PAGE -->
+<div class="page">
+<h1>21 Feb 2006 🎂</h1>
 
-  <p style="max-width:600px;font-size:18px;line-height:1.7;">
-  Happy Birthday meri jaan 🎂❤️  
-  Sach bolu toh words kabhi enough nahi hote batane ke liye ki tum mere liye kitne special ho.  
-  Tum meri life ka sabse beautiful part ho — meri smile ka reason, meri tension ka solution aur meri happiness ka permanent source 💖  
+<p>
+Aaj ka din mere liye world ka sabse special din hai,
+kyunki aaj ke din meri life ka sabse important person paida hua ❤️  
 
-  Kabhi kabhi lagta hai kaise itni kismat achhi ho sakti hai ki mujhe tum mil gaye 🥺  
-  Chahe hum kitne bhi door ho, mera dil hamesha tumhare paas hi rehta hai.  
-  Har din tumse thoda aur pyaar ho jata hai ❤️  
+Tum sirf boyfriend nahi ho… tum meri comfort ho,
+meri habit ho, meri smile ho, mera mood ho 💕  
 
-  I wish main aaj tumhe hug kar pati, cake khila pati aur tumhe tang kar pati pura din 😜  
-  But promise, ye distance temporary hai… aur hum forever wale log hain 💍  
+Long distance easy nahi hota…
+kabhi calls miss, kabhi fights, kabhi mood off…
+but still we are together ❤️ and that's what matters.  
 
-  Bas ek hi wish hai — tum hamesha khush raho ✨  
-  Aur mujhe kabhi mat chhodna 😌❤️  
-  </p>
+I promise main hamesha tumhare saath rahungi 💖  
+Happy Birthday my love 🎉 I love you sooo much ❤️
+</p>
 
-  <h2>Make a Birthday Wish 🎂</h2>
-  <p>Click the candle to blow it 💨</p>
+<h2>Make a Birthday Wish 🎂</h2>
+<p>Click candle to blow 💨</p>
 
-  <div onclick="blowCandle()" id="cakeBox" style="cursor:pointer;font-size:120px;">
-  🎂🔥
-  </div>
+<div onclick="blowCandle()" id="cakeBox" style="cursor:pointer;font-size:120px;">
+🎂🔥
+</div>
 
-  <p id="wishMsg" style="font-size:22px;"></p>
+<p id="wishMsg" style="font-size:22px;"></p>
 
-  <h2>— Forever Yours, Aeee Jii 💕</h2>
-</section>
+<h2>Forever Yours 💞</h2>
+<h1>Aeee Jii ❤️</h1>
+</div>
 
 <script>
-function next(id){
- document.querySelectorAll("section").forEach(s=>s.style.display="none");
- document.getElementById(id).style.display="flex";
+let currentPage=0;
+const pages=document.querySelectorAll(".page");
+
+function nextPage(){
+pages[currentPage].classList.remove("active");
+currentPage++;
+pages[currentPage].classList.add("active");
 }
 
-// 🎂 blow candle
 function blowCandle(){
- document.getElementById("cakeBox").innerHTML="🎂";
- document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
+document.getElementById("cakeBox").innerHTML="🎂";
+document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
 }
 
-// floating hearts
-setInterval(()=>{
- let heart=document.createElement("div");
- heart.className="heart";
- heart.innerHTML="💖";
- heart.style.left=Math.random()*100+"vw";
- heart.style.fontSize=Math.random()*25+15+"px";
- document.body.appendChild(heart);
- setTimeout(()=>heart.remove(),6000);
-},300);
+function startMusic(){
+document.getElementById("bgMusic").play();
+document.getElementById("musicStart").style.display="none";
+}
 </script>
 
 </body>
 </html>
+
 
 
 
