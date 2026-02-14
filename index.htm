@@ -1,158 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Happy Birthday Oooo Jii ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
 
 <style>
 body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-text-align:center;
-background:linear-gradient(120deg,#ff758c,#ff7eb3);
-color:white;
-overflow-x:hidden;
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(to right,#ff9a9e,#fad0c4);
+  text-align:center;
+  color:white;
 }
 
-section{padding:60px 20px;}
-h1{font-size:42px;}
-
+/* HERO SECTION */
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+  padding:100px 20px;
+}
+.hero h1{
+  font-size:50px;
+}
+.hero p{
+  font-size:22px;
 }
 
-.btn{
-background:white;
-color:#ff4f81;
-padding:15px 25px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-margin-top:15px;
-border:none;
-cursor:pointer;
+/* LOVE LETTER */
+.letter{
+  background:white;
+  color:#ff4d6d;
+  padding:40px;
+  margin:40px;
+  border-radius:15px;
+  box-shadow:0 0 20px rgba(0,0,0,0.2);
 }
 
-.message{
-max-width:650px;
-margin:auto;
-font-size:19px;
-line-height:1.7;
+/* LOVE COUNTER */
+.counter{
+  font-size:28px;
+  margin-top:20px;
 }
 
-.gallery img{
-width:220px;
-border-radius:20px;
-margin:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+/* PROMISES */
+.promises{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:30px;
+}
+.card{
+  background:white;
+  color:#ff4d6d;
+  padding:20px;
+  border-radius:15px;
+  width:220px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
-footer{
-background:#ff4f81;
-padding:15px;
-}
-
-#countdown{font-size:30px;margin-top:10px;}
-
+/* HEART ANIMATION */
 .heart{
-position:fixed;
-bottom:-20px;
-font-size:20px;
-animation:float 5s linear infinite;
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  animation: fall 5s linear infinite;
 }
-@keyframes float{
-0%{transform:translateY(0);}
-100%{transform:translateY(-110vh);}
+@keyframes fall{
+  0%{transform:translateY(-10px);}
+  100%{transform:translateY(100vh);}
+}
+
+button{
+  padding:15px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<audio id="music" loop>
-<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
-
-<section class="hero">
-<h1>Happy Birthday Oooo Jii ❤️🎂</h1>
-<p>From the girl who loves you the most 💞</p>
-
-<button class="btn" onclick="playMusic()">Play Our Song 🎵</button>
-<a href="#message" class="btn">Open My Heart 💌</a>
-</section>
-
-<section id="message">
-<h1>My Message For You</h1>
-<div class="message">
-<p>
-Happy Birthday my love ❤️<br><br>
-Meeting you was the best thing that ever happened to me.
-You are my happiness, my comfort and my safe place.<br><br>
-Thank you for loving me, supporting me and always making me smile.
-Life feels so beautiful because you are in it.<br><br>
-I promise to stay beside you in every situation,
-to support your dreams and love you more every single day.<br><br>
-You are my today, my tomorrow and my forever 💞<br><br>
-<b>Will you stay with me forever? 💍</b><br><br>
-— Love, Aeee Jii ❤️
-</p>
+<div class="hero">
+  <h1>For My Favourite Person 💖</h1>
+  <p>You make my world brighter everyday ✨</p>
 </div>
-</section>
 
-<section>
-<h1>Our Memories 📸</h1>
+<!-- LOVE LETTER -->
+<div class="letter">
+  <h2>💌 A Love Letter</h2>
+  <p>
+  No matter how far we are, my heart always finds you.  
+  Every message from you feels like a hug 🤗  
+  Every call feels like home 🏡  
+  And every day I fall for you a little more ❤️
+  </p>
+</div>
 
-<img src="https://picsum.photos/300?1">
-<img src="https://picsum.photos/300?2">
-<img src="https://picsum.photos/300?3">
+<!-- LOVE COUNTER -->
+<div class="letter">
+  <h2>⏳ Our Love Timer</h2>
+  <p>We've been in love for:</p>
+  <div class="counter" id="loveCounter"></div>
+</div>
 
-</section>
+<!-- PROMISES -->
+<h2>💍 My Promises</h2>
+<div class="promises">
+  <div class="card">I promise to annoy you forever 😜</div>
+  <div class="card">I promise to always support you 💪</div>
+  <div class="card">I promise to love you endlessly ❤️</div>
+  <div class="card">I promise to never stop flirting 😏</div>
+</div>
 
-<section>
-<h1>Your Special Day Countdown 🎉</h1>
-<div id="countdown"></div>
-</section>
-
-<footer>Made with Love 💖</footer>
+<button onclick="showLove()">Click for Surprise 💖</button>
 
 <script>
-function playMusic(){
-document.getElementById("music").play();
+// LOVE COUNTER (change date here 💕)
+let startDate = new Date("2023-01-01"); // change to your date
+let today = new Date();
+let diff = today - startDate;
+let days = Math.floor(diff / (1000*60*60*24));
+document.getElementById("loveCounter").innerHTML = days + " days ❤️";
+
+// SURPRISE BUTTON
+function showLove(){
+  alert("I LOVE YOU SO MUCH ❤️🥺");
 }
 
-var birthday = new Date("Feb 21, 2026 00:00:00").getTime();
-
-setInterval(function(){
-var now=new Date().getTime();
-var distance=birthday-now;
-
-var days=Math.floor(distance/(1000*60*60*24));
-var hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-
-document.getElementById("countdown").innerHTML=
-days+" Days "+hours+" Hours "+minutes+" Min";
-
-if(distance<0){
-document.getElementById("countdown").innerHTML="It's Your Birthday 🎂💖";
-}
-},1000);
-
+// FLOATING HEARTS
 setInterval(()=>{
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+10)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),5000);
+  let heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=Math.random()*20+15+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),5000);
 },300);
 </script>
 
 </body>
 </html>
+
 
