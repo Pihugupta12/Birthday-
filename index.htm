@@ -111,13 +111,41 @@ function nextPage(){
 }
 
 function blowCandle(){
-document.getElementById("cakeBox").innerHTML="🎂";
-document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
+  // remove flame
+  document.getElementById("cakeBox").innerHTML="🎂";
+  
+  // show wish message
+  document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
 
-setTimeout(function(){
-  alert("I LOVE YOU SO MUCH ❤️\nForever Yours 💞\nAeee Jii 😘");
-},1000);
+  // final surprise popup (works on mobile)
+  setTimeout(() => {
+    document.body.innerHTML += `
+    <div id="finalPopup" style="
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.9);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      font-size:30px;
+      padding:20px;
+      z-index:999;
+    ">
+      <div>
+        ❤️ I LOVE YOU SO MUCH ❤️<br><br>
+        Happy Birthday My Jii 🎂<br><br>
+        Forever Yours 💞<br>
+        <h1>Aeee Jii 😘</h1>
+      </div>
+    </div>
+    `;
+  }, 1000);
 }
+  
 
 </script>
 
