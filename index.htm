@@ -1,133 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>To My Love ❤️</title>
+<title>Happy Birthday Oooo Jii ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
   margin:0;
   font-family: 'Segoe UI';
-  background: radial-gradient(circle at top,#1a001a,#000);
-  color:white;
+  background: linear-gradient(120deg,#ff9a9e,#fad0c4);
   text-align:center;
   overflow-x:hidden;
+  color:#333;
 }
 
-/* INTRO SCREEN */
-.intro{
+section{
   height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  padding:20px;
 }
 
-h1{
-  font-size:55px;
-  text-shadow:0 0 20px #ff4d6d;
-}
-
-.type{
-  font-size:22px;
-  width:80%;
-  max-width:600px;
-  border-right:3px solid pink;
-  white-space:nowrap;
-  overflow:hidden;
-  animation: typing 6s steps(60,end), blink .8s infinite;
-}
-@keyframes typing{ from{width:0} to{width:100%} }
-@keyframes blink{50%{border-color:transparent}}
+h1{font-size:45px;}
+h2{font-size:32px;}
 
 button{
-  margin-top:30px;
   padding:15px 30px;
-  font-size:18px;
   border:none;
   border-radius:30px;
   background:#ff4d6d;
   color:white;
-  box-shadow:0 0 15px #ff4d6d;
-}
-
-/* SECTION */
-.section{
-  padding:80px 20px;
-}
-
-/* TIMER */
-.timer{
-  font-size:30px;
+  font-size:18px;
   margin-top:20px;
-  text-shadow:0 0 10px pink;
 }
 
-/* SECRET BOX */
-.secret{
-  display:none;
-  margin-top:30px;
-  font-size:22px;
-  color:#ff9ecb;
-}
+/* hidden pages */
+.page{display:none}
 
-/* HEARTS */
+/* hearts */
 .heart{
-  position:fixed;
-  top:-10px;
-  animation:fall 6s linear infinite;
+ position:fixed;
+ top:-10px;
+ animation:fall 6s linear infinite;
 }
-@keyframes fall{
-  to{transform:translateY(110vh);}
-}
+@keyframes fall{to{transform:translateY(110vh)}}
 </style>
 </head>
 
 <body>
 
-<div class="intro">
-  <h1>Hey You ❤️</h1>
-  <div class="type">Even distance can't stop me from loving you...</div>
-  <button onclick="scrollDown()">Enter Our World ✨</button>
-</div>
+<!-- PAGE 1 -->
+<section id="p1">
+  <h1>🎉 Happy Birthday Oooo Jii ❤️</h1>
+  <p>Tap below for your surprise 👇</p>
+  <button onclick="next('p2')">Start Surprise ✨</button>
+</section>
 
-<div class="section">
-  <h2>⏳ We have been together for</h2>
-  <div class="timer" id="timer"></div>
-</div>
+<!-- PAGE 2 -->
+<section id="p2" class="page">
+  <h2>First Question 😌</h2>
+  <p>Who loves you the most? 😏</p>
+  <button onclick="next('p3')">Aeee Jii obviously 😎</button>
+</section>
 
-<div class="section">
-  <h2>💌 Open when you miss me</h2>
-  <button onclick="showSecret()">Open Message</button>
-  <div class="secret" id="secretMsg">
-    No matter where you are,  
-    you are always in my heart ❤️  
-    I can't wait to hug you someday 🥺
-  </div>
-</div>
+<!-- PAGE 3 -->
+<section id="p3" class="page">
+  <h2>😂 Fun Fact</h2>
+  <p>You are officially getting older today 👴</p>
+  <p>But don't worry… you still cute 😌❤️</p>
+  <button onclick="next('p4')">Continue 💌</button>
+</section>
+
+<!-- PAGE 4 -->
+<section id="p4" class="page">
+  <h2>Distance Message 🥺</h2>
+  <p>I wish I could hug you today…</p>
+  <p>But this website hug will work for now 🤗</p>
+  <button onclick="next('p5')">One Last Thing 💖</button>
+</section>
+
+<!-- PAGE 5 -->
+<section id="p5" class="page">
+  <h1>I Love You So Much ❤️</h1>
+  <p>Happy Birthday My Person 🎂</p>
+  <h2>— Love, Aeee Jii 💕</h2>
+</section>
 
 <script>
-// CHANGE DATE HERE 💕
-let startDate = new Date("2023-01-01");
-
-function updateTimer(){
-  let now=new Date();
-  let diff=now-startDate;
-  let days=Math.floor(diff/86400000);
-  let hours=Math.floor(diff/3600000)%24;
-  let mins=Math.floor(diff/60000)%60;
-  document.getElementById("timer").innerHTML =
-  days+" days "+hours+" hrs "+mins+" mins ❤️";
-}
-setInterval(updateTimer,1000);
-updateTimer();
-
-function scrollDown(){
-  window.scrollTo({top:window.innerHeight,behavior:'smooth'});
-}
-
-function showSecret(){
-  document.getElementById("secretMsg").style.display="block";
+function next(id){
+ document.querySelectorAll("section").forEach(s=>s.style.display="none");
+ document.getElementById(id).style.display="flex";
 }
 
 // floating hearts
@@ -144,7 +108,6 @@ setInterval(()=>{
 
 </body>
 </html>
-
 
 
 
