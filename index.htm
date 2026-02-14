@@ -7,7 +7,7 @@
 <style>
 body{
   margin:0;
-  font-family: 'Segoe UI';
+  font-family:'Segoe UI';
   background: linear-gradient(120deg,#ff9a9e,#fad0c4);
   text-align:center;
   overflow-x:hidden;
@@ -23,8 +23,8 @@ section{
   padding:20px;
 }
 
-h1{font-size:45px;}
-h2{font-size:32px;}
+h1{font-size:42px;}
+h2{font-size:30px;}
 
 button{
   padding:15px 30px;
@@ -36,7 +36,7 @@ button{
   margin-top:20px;
 }
 
-/* hidden pages */
+/* pages */
 .page{display:none}
 
 /* hearts */
@@ -50,6 +50,11 @@ button{
 </head>
 
 <body>
+
+<!-- 🎵 AUTO MUSIC -->
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
 
 <!-- PAGE 1 -->
 <section id="p1">
@@ -81,37 +86,48 @@ button{
   <button onclick="next('p5')">One Last Thing 💖</button>
 </section>
 
-<!-- PAGE 5 -->
+<!-- PAGE 5 FINAL -->
 <section id="p5" class="page">
+  <h1>I Love You So Much ❤️</h1>
 
- <h1>I Love You So Much ❤️</h1>
+  <p style="max-width:600px;font-size:18px;line-height:1.7;">
+  Happy Birthday meri jaan 🎂❤️  
+  Sach bolu toh words kabhi enough nahi hote batane ke liye ki tum mere liye kitne special ho.  
+  Tum meri life ka sabse beautiful part ho — meri smile ka reason, meri tension ka solution aur meri happiness ka permanent source 💖  
 
-<p style="max-width:600px; font-size:18px; line-height:1.7;">
-Happy Birthday meri jaan 🎂❤️  
-Sach bolu toh words kabhi enough nahi hote batane ke liye ki tum mere liye kitne special ho.  
-Tum meri life ka sabse beautiful part ho — meri smile ka reason, meri tension ka solution aur meri happiness ka permanent source 💖  
+  Kabhi kabhi lagta hai kaise itni kismat achhi ho sakti hai ki mujhe tum mil gaye 🥺  
+  Chahe hum kitne bhi door ho, mera dil hamesha tumhare paas hi rehta hai.  
+  Har din tumse thoda aur pyaar ho jata hai ❤️  
 
-Kabhi kabhi lagta hai kaise itni kismat achhi ho sakti hai ki mujhe tum mil gaye 🥺  
-Chahe hum kitne bhi door ho, mera dil hamesha tumhare paas hi rehta hai.  
-Har din tumse thoda aur pyaar ho jata hai… aur honestly ab control bhi nahi hota 😭❤️  
+  I wish main aaj tumhe hug kar pati, cake khila pati aur tumhe tang kar pati pura din 😜  
+  But promise, ye distance temporary hai… aur hum forever wale log hain 💍  
 
-I wish main aaj tumhe hug kar pati, cake khila pati, aur tumhe tang kar pati pura din 😜  
-But promise, ye distance temporary hai… aur hum forever wale log hain 💍  
+  Bas ek hi wish hai — tum hamesha khush raho ✨  
+  Aur mujhe kabhi mat chhodna 😌❤️  
+  </p>
 
-Bas ek hi wish hai — tum hamesha khush raho, safe raho, aur life mein jo chaho sab mile ✨  
-Aur haan… mujhe kabhi mat chhodna 😌❤️  
-</p>
+  <h2>Make a Birthday Wish 🎂</h2>
+  <p>Click the candle to blow it 💨</p>
 
-<h2>— Forever Yours, Aeee Jii 💕</h2>
-  
-  <p>Happy Birthday My Person 🎂</p>
-  <h2>— Love, Aeee Jii 💕</h2>
+  <div onclick="blowCandle()" id="cakeBox" style="cursor:pointer;font-size:120px;">
+  🎂🔥
+  </div>
+
+  <p id="wishMsg" style="font-size:22px;"></p>
+
+  <h2>— Forever Yours, Aeee Jii 💕</h2>
 </section>
 
 <script>
 function next(id){
  document.querySelectorAll("section").forEach(s=>s.style.display="none");
  document.getElementById(id).style.display="flex";
+}
+
+// 🎂 blow candle
+function blowCandle(){
+ document.getElementById("cakeBox").innerHTML="🎂";
+ document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
 }
 
 // floating hearts
@@ -128,6 +144,7 @@ setInterval(()=>{
 
 </body>
 </html>
+
 
 
 
