@@ -1,148 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For My Love ❤️</title>
+<title>To My Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
   margin:0;
-  font-family: Arial;
-  background: linear-gradient(to right,#ff9a9e,#fad0c4);
-  text-align:center;
+  font-family: 'Segoe UI';
+  background: radial-gradient(circle at top,#1a001a,#000);
   color:white;
+  text-align:center;
+  overflow-x:hidden;
 }
 
-/* HERO SECTION */
-.hero{
-  padding:100px 20px;
-}
-.hero h1{
-  font-size:50px;
-}
-.hero p{
-  font-size:22px;
-}
-
-/* LOVE LETTER */
-.letter{
-  background:white;
-  color:#ff4d6d;
-  padding:40px;
-  margin:40px;
-  border-radius:15px;
-  box-shadow:0 0 20px rgba(0,0,0,0.2);
-}
-
-/* LOVE COUNTER */
-.counter{
-  font-size:28px;
-  margin-top:20px;
-}
-
-/* PROMISES */
-.promises{
+/* INTRO SCREEN */
+.intro{
+  height:100vh;
   display:flex;
-  flex-wrap:wrap;
+  flex-direction:column;
   justify-content:center;
-  gap:20px;
-  padding:30px;
-}
-.card{
-  background:white;
-  color:#ff4d6d;
-  padding:20px;
-  border-radius:15px;
-  width:220px;
-  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  align-items:center;
 }
 
-/* HEART ANIMATION */
+h1{
+  font-size:55px;
+  text-shadow:0 0 20px #ff4d6d;
+}
+
+.type{
+  font-size:22px;
+  width:80%;
+  max-width:600px;
+  border-right:3px solid pink;
+  white-space:nowrap;
+  overflow:hidden;
+  animation: typing 6s steps(60,end), blink .8s infinite;
+}
+@keyframes typing{ from{width:0} to{width:100%} }
+@keyframes blink{50%{border-color:transparent}}
+
+button{
+  margin-top:30px;
+  padding:15px 30px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  box-shadow:0 0 15px #ff4d6d;
+}
+
+/* SECTION */
+.section{
+  padding:80px 20px;
+}
+
+/* TIMER */
+.timer{
+  font-size:30px;
+  margin-top:20px;
+  text-shadow:0 0 10px pink;
+}
+
+/* SECRET BOX */
+.secret{
+  display:none;
+  margin-top:30px;
+  font-size:22px;
+  color:#ff9ecb;
+}
+
+/* HEARTS */
 .heart{
   position:fixed;
   top:-10px;
-  font-size:20px;
-  animation: fall 5s linear infinite;
+  animation:fall 6s linear infinite;
 }
 @keyframes fall{
-  0%{transform:translateY(-10px);}
-  100%{transform:translateY(100vh);}
-}
-
-button{
-  padding:15px 25px;
-  font-size:18px;
-  border:none;
-  border-radius:10px;
-  background:#ff4d6d;
-  color:white;
-  cursor:pointer;
+  to{transform:translateY(110vh);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <h1>For My Favourite Person 💖</h1>
-  <p>You make my world brighter everyday ✨</p>
+<div class="intro">
+  <h1>Hey You ❤️</h1>
+  <div class="type">Even distance can't stop me from loving you...</div>
+  <button onclick="scrollDown()">Enter Our World ✨</button>
 </div>
 
-<!-- LOVE LETTER -->
-<div class="letter">
-  <h2>💌 A Love Letter</h2>
-  <p>
-  No matter how far we are, my heart always finds you.  
-  Every message from you feels like a hug 🤗  
-  Every call feels like home 🏡  
-  And every day I fall for you a little more ❤️
-  </p>
+<div class="section">
+  <h2>⏳ We have been together for</h2>
+  <div class="timer" id="timer"></div>
 </div>
 
-<!-- LOVE COUNTER -->
-<div class="letter">
-  <h2>⏳ Our Love Timer</h2>
-  <p>We've been in love for:</p>
-  <div class="counter" id="loveCounter"></div>
+<div class="section">
+  <h2>💌 Open when you miss me</h2>
+  <button onclick="showSecret()">Open Message</button>
+  <div class="secret" id="secretMsg">
+    No matter where you are,  
+    you are always in my heart ❤️  
+    I can't wait to hug you someday 🥺
+  </div>
 </div>
-
-<!-- PROMISES -->
-<h2>💍 My Promises</h2>
-<div class="promises">
-  <div class="card">I promise to annoy you forever 😜</div>
-  <div class="card">I promise to always support you 💪</div>
-  <div class="card">I promise to love you endlessly ❤️</div>
-  <div class="card">I promise to never stop flirting 😏</div>
-</div>
-
-<button onclick="showLove()">Click for Surprise 💖</button>
 
 <script>
-// LOVE COUNTER (change date here 💕)
-let startDate = new Date("2023-01-01"); // change to your date
-let today = new Date();
-let diff = today - startDate;
-let days = Math.floor(diff / (1000*60*60*24));
-document.getElementById("loveCounter").innerHTML = days + " days ❤️";
+// CHANGE DATE HERE 💕
+let startDate = new Date("2023-01-01");
 
-// SURPRISE BUTTON
-function showLove(){
-  alert("I LOVE YOU SO MUCH ❤️🥺");
+function updateTimer(){
+  let now=new Date();
+  let diff=now-startDate;
+  let days=Math.floor(diff/86400000);
+  let hours=Math.floor(diff/3600000)%24;
+  let mins=Math.floor(diff/60000)%60;
+  document.getElementById("timer").innerHTML =
+  days+" days "+hours+" hrs "+mins+" mins ❤️";
+}
+setInterval(updateTimer,1000);
+updateTimer();
+
+function scrollDown(){
+  window.scrollTo({top:window.innerHeight,behavior:'smooth'});
 }
 
-// FLOATING HEARTS
+function showSecret(){
+  document.getElementById("secretMsg").style.display="block";
+}
+
+// floating hearts
 setInterval(()=>{
-  let heart=document.createElement("div");
-  heart.className="heart";
-  heart.innerHTML="💖";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=Math.random()*20+15+"px";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),5000);
+ let heart=document.createElement("div");
+ heart.className="heart";
+ heart.innerHTML="💖";
+ heart.style.left=Math.random()*100+"vw";
+ heart.style.fontSize=Math.random()*25+15+"px";
+ document.body.appendChild(heart);
+ setTimeout(()=>heart.remove(),6000);
 },300);
 </script>
 
 </body>
 </html>
+
 
 
 
