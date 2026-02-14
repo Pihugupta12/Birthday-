@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Oooo Jii ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+background:linear-gradient(120deg,#ff758c,#ff7eb3);
+color:white;
+overflow-x:hidden;
+}
+
+section{padding:60px 20px;}
+h1{font-size:42px;}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.btn{
+background:white;
+color:#ff4f81;
+padding:15px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+margin-top:15px;
+border:none;
+cursor:pointer;
+}
+
+.message{
+max-width:650px;
+margin:auto;
+font-size:19px;
+line-height:1.7;
+}
+
+.gallery img{
+width:220px;
+border-radius:20px;
+margin:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+footer{
+background:#ff4f81;
+padding:15px;
+}
+
+#countdown{font-size:30px;margin-top:10px;}
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float 5s linear infinite;
+}
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<section class="hero">
+<h1>Happy Birthday Oooo Jii ❤️🎂</h1>
+<p>From the girl who loves you the most 💞</p>
+
+<button class="btn" onclick="playMusic()">Play Our Song 🎵</button>
+<a href="#message" class="btn">Open My Heart 💌</a>
+</section>
+
+<section id="message">
+<h1>My Message For You</h1>
+<div class="message">
+<p>
+Happy Birthday my love ❤️<br><br>
+Meeting you was the best thing that ever happened to me.
+You are my happiness, my comfort and my safe place.<br><br>
+Thank you for loving me, supporting me and always making me smile.
+Life feels so beautiful because you are in it.<br><br>
+I promise to stay beside you in every situation,
+to support your dreams and love you more every single day.<br><br>
+You are my today, my tomorrow and my forever 💞<br><br>
+<b>Will you stay with me forever? 💍</b><br><br>
+— Love, Aeee Jii ❤️
+</p>
+</div>
+</section>
+
+<section>
+<h1>Our Memories 📸</h1>
+
+<img src="https://picsum.photos/300?1">
+<img src="https://picsum.photos/300?2">
+<img src="https://picsum.photos/300?3">
+
+</section>
+
+<section>
+<h1>Your Special Day Countdown 🎉</h1>
+<div id="countdown"></div>
+</section>
+
+<footer>Made with Love 💖</footer>
+
+<script>
+function playMusic(){
+document.getElementById("music").play();
+}
+
+var birthday = new Date("Feb 21, 2026 00:00:00").getTime();
+
+setInterval(function(){
+var now=new Date().getTime();
+var distance=birthday-now;
+
+var days=Math.floor(distance/(1000*60*60*24));
+var hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML=
+days+" Days "+hours+" Hours "+minutes+" Min";
+
+if(distance<0){
+document.getElementById("countdown").innerHTML="It's Your Birthday 🎂💖";
+}
+},1000);
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+},300);
+</script>
+
+</body>
+</html>
+
