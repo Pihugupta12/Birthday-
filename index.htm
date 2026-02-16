@@ -7,20 +7,61 @@
 body{
 margin:0;
 font-family:'Segoe UI';
-background:linear-gradient(120deg,#ff758c,#ff7eb3);
+background: linear-gradient(135deg,#ff9a9e,#fad0c4,#ffdde1);
 color:white;
 text-align:center;
 overflow:hidden;
 }
-.page{display:none;padding:60px 20px;height:100vh;}
-.active{display:block;}
-button{
-padding:12px 25px;border:none;border-radius:25px;
-background:white;color:#ff4d6d;font-size:18px;
-margin-top:25px;cursor:pointer;
+
+/* Glass pages */
+.page{
+display:none;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
-h1{font-size:40px;}
-p{font-size:20px;line-height:1.6;}
+.page.active{display:flex;}
+
+.page > *{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+padding:20px 25px;
+border-radius:20px;
+box-shadow:0 8px 30px rgba(0,0,0,0.2);
+margin:10px;
+}
+
+/* Buttons glow */
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff4d6d;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 10px rgba(255,255,255,0.6);
+}
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px white;
+}
+
+/* Cartoon bounce */
+.cartoon{
+font-size:55px;
+animation:bounce 2s infinite;
+}
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+/* Floating hearts */
 .heart{
 position:fixed;bottom:-10px;font-size:20px;
 animation:floatUp 8s linear infinite;opacity:0.7;
@@ -42,14 +83,15 @@ animation:floatUp 8s linear infinite;opacity:0.7;
 <div class="page active">
 <h1>🎉 Happy Birthday My Love 🎉</h1>
 <p>Oooo jii… Aeee jii 😚</p>
+<div class="cartoon">🐻💖</div>
 <button onclick="nextPage()">Click Here ❤️</button>
-<p id="counter"></p>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page">
 <h1>You Are Special 💕</h1>
 <p>You are my smile, my peace and my favourite notification ❤️</p>
+<div class="cartoon">🐰💌</div>
 <button onclick="nextPage()">Continue 💌</button>
 </div>
 
@@ -57,6 +99,7 @@ animation:floatUp 8s linear infinite;opacity:0.7;
 <div class="page">
 <h1>Your Birthday Wish 🎈</h1>
 <p>I wish tumhari life happiness, success aur meri love se fill ho jaye 💖</p>
+<div class="cartoon">🎁🐼</div>
 <button onclick="nextPage()">Next Surprise 🎁</button>
 </div>
 
@@ -64,6 +107,7 @@ animation:floatUp 8s linear infinite;opacity:0.7;
 <div class="page">
 <h1>For You 💗</h1>
 <p>Jab tum life me aaye tab realise hua love movies fake nahi hoti 🥺</p>
+<div class="cartoon">🥺💞</div>
 <button onclick="nextPage()">Continue 😘</button>
 </div>
 
@@ -71,6 +115,7 @@ animation:floatUp 8s linear infinite;opacity:0.7;
 <div class="page">
 <h1>Important Question 😏</h1>
 <p>Do you love me?? 💕</p>
+<div class="cartoon">😏💘</div>
 <button onclick="yesLove()">Yes 😍</button>
 <button id="noBtn" onmouseover="moveNo()">No 🙄</button>
 </div>
@@ -86,6 +131,7 @@ I promise to:<br><br>
 • Annoy you forever 😝<br>
 • Love you forever ❤️
 </p>
+<div class="cartoon">😂💖</div>
 <button onclick="nextPage()">Continue 💕</button>
 </div>
 
@@ -93,20 +139,17 @@ I promise to:<br><br>
 <div class="page">
 <h1>21 Feb 2006 🎂</h1>
 <p>
-Aaj ka din mere liye world ka sabse special din hai ❤️  
+Aaj ka din mere liye duniya ka sabse special din hai ❤️  
 Tum meri comfort, meri habit, meri smile ho 🥺  
 Long distance tough hai but hum saath hain 💕  
+Thank you meri life me aane ke liye 💖  
 I love you soooo much ❤️
 </p>
 
 <h2>Make a Birthday Wish 🎂</h2>
 <p>Click the candle to blow it 💨</p>
-
-<div onclick="blowCandle()" id="cakeBox" style="cursor:pointer;font-size:120px;">
-🎂🔥
-</div>
-
-<p id="wishMsg" style="font-size:22px;"></p>
+<div onclick="blowCandle()" id="cakeBox" style="cursor:pointer;font-size:120px;">🎂🔥</div>
+<p id="wishMsg"></p>
 <h2>Forever Yours 💞</h2>
 <h1>Aeee Jii ❤️</h1>
 </div>
@@ -117,24 +160,14 @@ const pages=document.querySelectorAll(".page");
 let musicStarted=false;
 
 function nextPage(){
-  if(!musicStarted){
-    document.getElementById("bgMusic").play();
-    musicStarted=true;
-  }
-  pages[currentPage].classList.remove("active");
-  currentPage++;
-  pages[currentPage].classList.add("active");
+ if(!musicStarted){document.getElementById("bgMusic").play();musicStarted=true;}
+ pages[currentPage].classList.remove("active");
+ currentPage++;
+ pages[currentPage].classList.add("active");
 }
 
-// Love counter
-const startDate=new Date("2023-01-01"); 
-const today=new Date();
-const diff=Math.floor((today-startDate)/(1000*60*60*24));
-document.getElementById("counter").innerHTML=
-"We survived "+diff+" days together ❤️";
-
-// Funny buttons
 function yesLove(){ alert("I knew it 😌❤️"); nextPage(); }
+
 function moveNo(){
 const btn=document.getElementById("noBtn");
 btn.style.position="absolute";
@@ -142,7 +175,6 @@ btn.style.left=Math.random()*80+"vw";
 btn.style.top=Math.random()*80+"vh";
 }
 
-// Blow candle + final popup
 function blowCandle(){
 document.getElementById("cakeBox").innerHTML="🎂";
 document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
@@ -160,17 +192,14 @@ Forever Yours 💞<br>
 },1000);
 }
 
-// Floating hearts
-setInterval(createHeart,500);
-function createHeart(){
+setInterval(()=>{
 const heart=document.createElement("div");
 heart.classList.add("heart");
 heart.innerHTML="💖";
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+15)+"px";
 document.body.appendChild(heart);
-setTimeout(()=>{heart.remove();},8000);
-}
+setTimeout(()=>heart.remove(),8000);
+},500);
 </script>
 
 </body>
