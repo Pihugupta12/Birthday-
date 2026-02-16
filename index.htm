@@ -6,25 +6,31 @@
 <style>
 body{
 margin:0;
-font-family: 'Segoe UI';
-background: linear-gradient(120deg,#ff758c,#ff7eb3);
+font-family:'Segoe UI';
+background:linear-gradient(120deg,#ff758c,#ff7eb3);
 color:white;
 text-align:center;
 overflow:hidden;
 }
+
 .page{display:none;padding:60px 20px;height:100vh;}
 .active{display:block;}
-button{
-padding:12px 25px;border:none;border-radius:25px;
-background:white;color:#ff4d6d;font-size:18px;
-margin-top:25px;cursor:pointer;
-}
-h1{font-size:40px;}
-p{font-size:20px; line-height:1.6;}
-</style>
-</head>
 
-<body>
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff4d6d;
+font-size:18px;
+margin-top:25px;
+cursor:pointer;
+}
+
+h1{font-size:40px;}
+p{font-size:20px;line-height:1.6;}
+
+/* Floating hearts */
 .heart{
 position:fixed;
 bottom:-10px;
@@ -32,28 +38,18 @@ font-size:20px;
 animation: floatUp 8s linear infinite;
 opacity:0.7;
 }
-
 @keyframes floatUp{
 0%{transform:translateY(0) scale(0.5);}
 100%{transform:translateY(-120vh) scale(1.5);}
 }
-  setInterval(createHeart,500);
+</style>
+</head>
 
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML="💖";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(Math.random()*20+15)+"px";
-  document.body.appendChild(heart);
+<body>
 
-  setTimeout(()=>{heart.remove();},8000);
-}
-  
 <audio id="bgMusic" loop>
-<source src="https://cdn.pixabay.com/download/audio/2021/11/25/audio_91f7c2a4b1.mp3?filename=romantic-piano-ambient-11157.mp3">
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
-  
 
 <!-- PAGE 1 -->
 <div class="page active">
@@ -86,8 +82,8 @@ function createHeart(){
 <!-- PAGE 5 -->
 <div class="page">
 <h1>21 Feb 2006 🎂</h1>
-  
-  <p>
+
+<p>
 Aaj ka din mere liye world ka sabse special din hai,
 kyunki aaj ke din meri life ka sabse important person paida hua ❤️  
 
@@ -99,13 +95,12 @@ Long distance easy nahi hota…
 kabhi calls miss ho jaati hain,
 kabhi mood off ho jata hai,
 kabhi fights bhi ho jaati hain,
-but phir bhi hum saath hain and that’s what matters 💕  
+but phir bhi hum saath hain 💕  
 
 Tum ho toh sab hai…
 tum nahi toh kuch bhi nahi 🥺  
 I love you soooo much ❤️
 </p>
-  
 
 <h2>Make a Birthday Wish 🎂</h2>
 <p>Click the candle to blow it 💨</p>
@@ -136,46 +131,42 @@ function nextPage(){
 }
 
 function blowCandle(){
-  // remove flame
   document.getElementById("cakeBox").innerHTML="🎂";
-  
-  // show wish message
   document.getElementById("wishMsg").innerHTML="Yayyy 🥳 Wish granted! I love you ❤️";
 
-  // final surprise popup (works on mobile)
-  setTimeout(() => {
-    document.body.innerHTML += `
-    <div id="finalPopup" style="
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.9);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      font-size:30px;
-      padding:20px;
-      z-index:999;
-    ">
+  setTimeout(()=>{
+    document.body.innerHTML+=`
+    <div style="
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.9);display:flex;
+      justify-content:center;align-items:center;
+      text-align:center;font-size:30px;padding:20px;z-index:999;">
       <div>
         ❤️ I LOVE YOU SO MUCH ❤️<br><br>
         Happy Birthday My Jii 🎂<br><br>
         Forever Yours 💞<br>
         <h1>Aeee Jii 😘</h1>
       </div>
-    </div>
-    `;
-  }, 1000);
+    </div>`;
+  },1000);
 }
-  
 
+/* Floating hearts generator */
+setInterval(createHeart,500);
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},8000);
+}
 </script>
 
 </body>
 </html>
+
 
 
 
